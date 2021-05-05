@@ -66,6 +66,7 @@ void locate(int x, int y); /* Forward declare for C to avoid warnings */
 #    define _NO_OLDNAMES /* for MinGW compatibility */
 #    include <conio.h>   /* for getch() and kbhit() */
 #    include <lmcons.h>  /* for getUsername()      */
+#    include <winbase.h>
 #    define getch _getch
 #    define kbhit _kbhit
 #else
@@ -840,7 +841,7 @@ void printXY(int x, int y, RUTIL_STRING msg) {
 }
 
 void enableEcho() {
-#ifndef WIN_32
+#ifndef _WIN32
     struct termios term;
     tcgetattr(0, &term);
     term.c_lflag |= ECHO;
@@ -849,7 +850,7 @@ void enableEcho() {
 }
 
 void disableEcho() {
-#ifndef WIN_32
+#ifndef _WIN32
     struct termios term;
     tcgetattr(0, &term);
     term.c_lflag &= ~ECHO;

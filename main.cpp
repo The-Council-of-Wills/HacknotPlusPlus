@@ -1,9 +1,13 @@
 #include <iostream>
+
+#ifdef _WIN32
+#include <string>
+#endif
+
 #include "rogueutil.h"
 
 int main()
 {
-  rogueutil::setColor(4);
   bool isRunning = true;
   std::string input;
   while (isRunning)
