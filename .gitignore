@@ -2,3 +2,7 @@ a.out
 *.obj
 *.lib
 *.exe
+
+build/
+.vs/
+.vscode/
